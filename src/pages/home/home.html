@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Senior Status</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item *ngIf="connectionStatus">
+    <ion-label>{{mqttStatus}}</ion-label>
+    <ion-toggle [(ngModel)]="connectionStatus" (ngModelChange)="disconnect()"></ion-toggle>
+  </ion-item>
+
+    <ion-item *ngIf="!connectionStatus">
+      <ion-label>{{mqttStatus}}</ion-label>
+      <ion-toggle [(ngModel)]="connectionStatus" (ngModelChange)="connect()"></ion-toggle>
+    </ion-item>
+
+  <ion-card>
+    <ion-card-header>Senor Last Seen:</ion-card-header>
+    <ion-card-content>{{location}}</ion-card-content>
+  </ion-card>
+
+  <ion-content padding>
+
+    <ion-label stacked>Message to Send:</ion-label>
+    <ion-textarea [(ngModel)]='messageToSend'>{{this.messageToSend}}</ion-textarea>
+    <button ion-button full (click)="sendMessage()">Send Message</button>
+  <ion-card>
+
+    <ion-card-header>
+      Sensor Activation
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #barCanvas height="200"></canvas>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+

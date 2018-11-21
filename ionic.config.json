@@ -1,0 +1,7 @@
+{
+  "name": "Smart_Eldercare",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
